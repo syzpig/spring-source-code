@@ -78,7 +78,7 @@ public class Person implements BeanFactoryAware, BeanNameAware, InitializingBean
 
 
     /**
-     * 这是BeanFactoryAware接口方法
+     * 这是BeanFactoryAware接口方法  五、BeanFactoryAware接口（bean加载时获取加载该bean的bean工厂时使用)
      * 要直接在自己的代码中读取spring的bean,我们除了根据常用的set外,也可以通过spring的BeanFactoryAware接口实现,只要实现setBeanFactory方法就可以,
      * 使用ClassPathXmlApplicationContext 加载bean.xml文件才能将实现BeanFactoryAware接口的bean的BeanFactory注入进去。
      */
@@ -89,7 +89,7 @@ public class Person implements BeanFactoryAware, BeanNameAware, InitializingBean
     }
 
     /**
-     * 这是BeanNameAware接口方法
+     * 这是BeanNameAware接口方法   bean加载的过程中获取到bean的ID
      */
     @Override
     public void setBeanName(String s) {
@@ -98,7 +98,7 @@ public class Person implements BeanFactoryAware, BeanNameAware, InitializingBean
     }
 
     /**
-     * 这是InitializingBean接口方法
+     * 这是InitializingBean接口方法  bean属性设置完成后添加操作
      */
     @Override
     public void afterPropertiesSet() throws Exception {

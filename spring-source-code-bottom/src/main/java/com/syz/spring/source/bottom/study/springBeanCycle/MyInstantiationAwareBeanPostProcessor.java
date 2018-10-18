@@ -7,9 +7,12 @@ import org.springframework.beans.factory.config.InstantiationAwareBeanPostProces
 import java.beans.PropertyDescriptor;
 
 /**
- * 3、InstantiationAwareBeanPostProcessor 接口本质是BeanPostProcessor的子接口，
- * 一般我们继承Spring为其提供的适配器类InstantiationAwareBeanPostProcessor Adapter来使用它
- * 一般情况下，可以方便地扩展该适配器覆盖感兴趣的方法以定义实现类
+ * 3、InstantiationAwareBeanPostProcessor（实例化感知Bean后处理器） 接口本质是BeanPostProcessor的子接口，
+ *  bean的实例化前后，即调用构造函数前后
+ *  1、Bean构造出来之前调用postProcessBeforeInstantiation()方法
+    2、Bean构造出来之后调用postProcessAfterInstantiation()方法
+ 通常不会直接实现InstantiationAwareBeanPostProcessor接口，而是会采用继承InstantiationAwareBeanPostProcessorAdapter这个抽象类的方式来使用。
+
  */
 public class MyInstantiationAwareBeanPostProcessor extends InstantiationAwareBeanPostProcessorAdapter {
     public MyInstantiationAwareBeanPostProcessor() {
@@ -22,7 +25,7 @@ public class MyInstantiationAwareBeanPostProcessor extends InstantiationAwareBea
      */
     @Override
     public Object postProcessBeforeInstantiation(Class beanClass, String beanName) throws BeansException {
-        System.out.println("InstantiationAwareBeanPostProcessor调用postProcessBeforeInstantiation方法");
+        System.out.println("InstantiationAwareBeanPostProcessor调用postProcessBeforeInstantiation方法-----作用执行bean构造器");
         return null;
     }
 
@@ -31,7 +34,7 @@ public class MyInstantiationAwareBeanPostProcessor extends InstantiationAwareBea
      */
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-        System.out.println("InstantiationAwareBeanPostProcessor调用postProcessAfterInitialization方法");
+        System.out.println("InstantiationAwareBeanPostProcessor调用postProcessAfterInitialization方法-----作用为Bean注入属性");
         return bean;
     }
 
