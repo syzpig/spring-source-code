@@ -6,12 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="spring-source-code-bottom" />
+        <module name="syz.sp.bottom.root" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="spring-source-code" target="1.8" />
-      <module name="spring-source-code-bottom" target="1.8" />
+      <module name="syz.sp" target="1.8" />
+      <module name="syz.sp.bottom.root" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/spring-source-code.iml" filepath="$PROJECT_DIR$/spring-source-code.iml" />
-      <module fileurl="file://$PROJECT_DIR$/spring-source-code-bottom/spring-source-code-bottom.iml" filepath="$PROJECT_DIR$/spring-source-code-bottom/spring-source-code-bottom.iml" />
+      <module fileurl="file://$PROJECT_DIR$/syz.sp.iml" filepath="$PROJECT_DIR$/syz.sp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-source-code-bottom/syz.sp.bottom.root.iml" filepath="$PROJECT_DIR$/spring-source-code-bottom/syz.sp.bottom.root.iml" />
     </modules>
   </component>
 </project>

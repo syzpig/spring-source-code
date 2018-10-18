@@ -1,0 +1,37 @@
+一、InitialingBean接口（bean属性设置完成后添加操作）
+实现afterPropertiesSet()方法
+
+二、DisposableBean接口（bean实例销毁之前时做一些收尾工作）
+实现destory()方法
+
+三、BeanNameAware接口(bean加载的过程中获取到bean的ID)
+实现setBeanName()方法
+
+四、ApplicationContextAware（从上下文获取bean时使用，可以让实现类或子接口的实现类注入ApplicationContext，获取上下文的信息）
+实现setApplicationContext()方法
+
+五、BeanFactoryAware接口(bean加载时获取加载该bean的bean工厂时使用)
+实现setBeanFactory()方法
+
+六、FactoryBean接口(个性化地定制自己想要实例化出来的Bean)
+1、getObject()方法是最重要的，控制Bean的实例化过程
+2、getObjectType()方法获取接口返回的实例的class
+3、isSingleton()方法获取该Bean是否为一个单例的Bean
+
+七、BeanPostProcessor接口（bean的初始化前后，也就是赋值阶段，即调用setter方法）
+重写postProcessBeforeInitialization实例化之前
+重写postProcessAfterInitialization实例化之后
+
+八、BeanFactoryPostProcessor(Bean创建之前，读取Bean的元属性，并根据自己的需求对元属性进行改变，比如将Bean的scope从singleton改变为prototype)
+1、BeanFactoryPostProcessor的执行优先级高于BeanPostProcessor
+2、BeanFactoryPostProcessor的postProcessBeanFactory()方法只会执行一次,携带了每个bean的基本信息
+
+九、InstantiationAwareBeanPostProcessor(bean的实例化前后，即调用构造函数前后)
+1、Bean构造出来之前调用postProcessBeforeInstantiation()方法
+2、Bean构造出来之后调用postProcessAfterInstantiation()方法
+通常不会直接实现InstantiationAwareBeanPostProcessor接口，而是会采用继承InstantiationAwareBeanPostProcessorAdapter这个抽象类的方式来使用。
+
+十、ThreadFactory(线程池创建时使用，类可以通过实现此接口，达到构建自定义线程工厂)
+十一、PropertyPlaceholderConfigurer (properties属性文件处理器，当配置多个属性文件，有同名时，最后一个将生效)
+十二、PropertyOverrideConfigurer(与PropertyPlaceholderConfigurer 不同的是: PropertyOverrideConfigurer 利用属性文件的相关信息，覆盖XML 配置文件中定义。即PropertyOverrideConfigurer 允许XML 配置文件中有默认的配置信息。如果PropertyOverrideConfigurer 的属性文件有对应配置信息，则XML 文件中的配置信息被覆盖:否则，直接使用XML 文件中的配置信息)
+十二、AbstractRoutingDataSource(多数据源动态切换，子类可继承并重写determineCurrentLookupKey方法）

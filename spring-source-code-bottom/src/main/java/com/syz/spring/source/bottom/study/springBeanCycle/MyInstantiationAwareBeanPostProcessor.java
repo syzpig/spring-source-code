@@ -9,6 +9,7 @@ import java.beans.PropertyDescriptor;
 /**
  * 3、InstantiationAwareBeanPostProcessor 接口本质是BeanPostProcessor的子接口，
  * 一般我们继承Spring为其提供的适配器类InstantiationAwareBeanPostProcessor Adapter来使用它
+ * 一般情况下，可以方便地扩展该适配器覆盖感兴趣的方法以定义实现类
  */
 public class MyInstantiationAwareBeanPostProcessor extends InstantiationAwareBeanPostProcessorAdapter {
     public MyInstantiationAwareBeanPostProcessor() {
@@ -41,7 +42,6 @@ public class MyInstantiationAwareBeanPostProcessor extends InstantiationAwareBea
         System.out.println("InstantiationAwareBeanPostProcessor调用postProcessPropertyValues方法");
         return pvs;
     }
-
     /**
      *这个有3个方法，其中第二个方法postProcessAfterInitialization就是重写了BeanPostProcessor的方法。
      *第三个方法postProcessPropertyValues用来操作属性，返回值也应该是PropertyValues对象

@@ -6,7 +6,11 @@ import org.springframework.beans.factory.config.BeanPostProcessor;
 /**
  * 接下来是演示BeanPostProcessor接口的方法
  * <p>
- * BeanPostProcessor接口有两个回调方法。当一个BeanPostProcessor的实现类注册到Spring IOC容器后，对于该Spring IOC容器所创建的每个bean实例在初始化方法（如afterPropertiesSet和任意已声明的init方法）调用前，将会调用BeanPostProcessor中的postProcessBeforeInitialization方法，而在bean实例初始化方法调用完成后，则会调用BeanPostProcessor中的postProcessAfterInitialization方法，整个调用顺序可以简单示意如下：
+ * 作用：如果我们想在Spring容器中完成bean实例化、配置以及其他初始化方法前后要添加一些自己逻辑处理。
+ * 我们需要定义一个或多个BeanPostProcessor接口实现类，然后注册到Spring IoC容器中。
+ *
+ * BeanPostProcessor接口有两个回调方法。当一个BeanPostProcessor的实现类注册到Spring IOC容器后，
+ * 对于该Spring IOC容器所创建的每个bean实例在初始化方法（如afterPropertiesSet和任意已声明的init方法）调用前，将会调用BeanPostProcessor中的postProcessBeforeInitialization方法，而在bean实例初始化方法调用完成后，则会调用BeanPostProcessor中的postProcessAfterInitialization方法，整个调用顺序可以简单示意如下：
  * --> Spring IOC容器实例化Bean
  * --> 调用BeanPostProcessor的postProcessBeforeInitialization方法
  * --> 调用bean实例的初始化方法

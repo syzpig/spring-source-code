@@ -7,6 +7,14 @@ import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 
 /**
  * 4、演示工厂后处理器接口方法
+ *
+ * beanFactoryPostprocessor的作用是在beanFactory初始化之后提供一个修改的机会。spring已经提供了不少实现，、
+ * 我们自己也可以写一些实现配置在xml中 或者手动调用。
+ *
+ * BeanFactoryPostProcessor允许使用者修改容器中的bean definitions
+   BeanFactoryPostProcessor可以与bean definitions打交道，但是千万不要进行bean实例化（感觉这里应该说的是不要在BeanFactoryPostProcessor进行可能触发bean实例化的操作）。
+   这么做可能会导致bean被提前实例化，会破坏容器造成预估不到的副作用。如果你需要hack到bean实例化过程，请考虑使用BeanPostProcessor
+   BeanFactoryPostProcessor的主要作用是让你能接触到bean definitions，对bean definitions进行一定hack，但是也仅此而已了。绝对不允许在BeanFactoryPostProcessor中触发到bean的实例化
  */
 public class MyBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
 
